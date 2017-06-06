@@ -73,7 +73,7 @@ Note:
 
 	(3) The first testing option is the test the kNN in each sense for a specified word. The instruction template is "1'\t'word", where "word" is the tested word.
 	For example, using "1	head" shows the following result.
-		-----------------------------------------
+		
 		k-NN sorted by collocation likelihood
 		sense 1
 		venter thorax neck spear millimeters fusiform beachy shaved maldives whale
@@ -81,10 +81,10 @@ Note:
 		shaved thatcher loki thorax mao luthor chest pressure kryptonite neck
 		sense 3
 		multi-party appoints unicameral beria appointed minister-president cabinet thatcher elect coach
-		-----------------------------------------
+	
 	(4) The second testing option is to test the probabilistic policy as well as kNN for sense selection given a text context. The instruction template is "2'\t'sentence'\t'word_index", where word_index is the index starting from 0 specifying the position of the target word in the sentence for sense selection.
 	For example, using "2	appoint john pope republican as head of the new army of	5" shows the following result.
-		-----------------------------------------
+		
 		probability for each sense:
 		[ 0.21802232  0.21920459  0.56277311]
 		k-NN sorted by collocation likelihood
@@ -94,10 +94,10 @@ Note:
 		shaved thatcher loki thorax mao luthor chest pressure kryptonite neck
 		sense 3
 		multi-party appoints unicameral beria appointed minister-president cabinet thatcher elect coach
-		-----------------------------------------
+	
 	(5) The third testing option is to test the contexts in the training corpus, where each sense of the specified word will be selected. The instruction template is "3'\t'word'\t'probability_threshold", where the probability_threshold is the threshold that skips a sentence for the target word without the maximum sense selection probability passing the threshold.
 	For example, using "3	head	0.33" shows the following result.
-		-----------------------------------------
+		
 		k-NN sorted by collocation likelihood
 		sense 1
 		venter thorax neck spear millimeters fusiform beachy head shaved maldives
@@ -142,27 +142,27 @@ Note:
 		appointed republican ambrose burnside to head the army of the potomac
 		single-shot caliber mm at his head firing at point-blank range
 		==================
-		-----------------------------------------
+	
 	(6) The fourth testing option is to test the accuracy of synonym selection using the TOEFL dataset. Please specified the TOEFL dataset folder in the instruction.
 	For example, using "4	toefl" shows the following result.
-		-----------------------------------------
+
 		('...', 'testing toefl')
 		Accuracy = 0.811594202899
 		... testing toefl done in 0:00:00.081102
-		-----------------------------------------
+
 	(7) The fifth testing option is to test the accuracy of synonym selection using the ESL-50/RD-300 dataset. Please specified the dataset in the instruction. Each line in the dataset should be formatted as:
 	"question_word | answer_word | synonym_candidate_2 | synonym_candidate_3 | synonym_candidate_4"
 	For example, using "5	esl-rd/RD300.txt" shows the following result.
-		-----------------------------------------
+
 		('...', 'testing esl-rd/RD300.txt')
 		Accuracy = 0.589285714286
 		... testing esl-rd/RD300.txt done in 0:00:00.054413
-		-----------------------------------------
 
 	(8) The sixth testing option is to dump the sense embeddings and corresponding indices. The instruction format should be: "6\tdump_embedding_file\tdump_index_file" 
 	For example, "6\tembed.txt\tindex.tsv".0
 
 We also provide some example training settings here:
+
 	(1) python MUSE_train.py --memory 0.1 --dataset_dir /home/homer/preprocessing/ --log_path original_smooth_policy.log --save_dir /tmp2/final_models/original_smooth_policy/ --learning_method smooth_policy --formulation original_formulation
 
 	(2) python MUSE_train.py --memory 0.1 --dataset_dir /home/homer/preprocessing/ --log_path oneside_smooth_policy.log --save_dir /tmp2/final_models/oneside_smooth_policy/ --learning_method smooth_policy --formulation one-sided_optimization
