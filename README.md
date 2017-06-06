@@ -1,6 +1,7 @@
 instructions for running MUSE - Modularizing Unsupervised Sense Embeddings
 
 Note:
+
 	(1) tensorflow version: 0.11.0rc1.
 	
 	(2) python2.7.
@@ -13,6 +14,7 @@ Note:
 	(5) Please feel free to contact me if you have any problem. Thanks.
 
 1. Download requirements:
+
 	(1) Download Wikipedia 2010 dump preprocessed by Westbury lab (http://www.psych.ualberta.ca/~westburylab/downloads/westburylab.wikicorp.download.html), and put it into folder "preprocessing/".
 	
 	(2) Download Stanford NLP tools.
@@ -24,6 +26,7 @@ Note:
 	(5) Synonym selection datasets are not public, please ask the original authors for the datasets. Thanks.
 
 2. Preprocess training corpus:
+
 	(0) "cd preprocessing".
 	
 	(1) Set "stanford-parser.jar" and "stanford-postagger.jar" in Stanford NLP tools into your CLASSPATH.
@@ -39,6 +42,7 @@ Note:
 	(6)	Great! now you have all necessary files (train.sensplit.txt, test.sensplit.txt, wordID_MSSG_unigram_sensplit.txt) for model training.
 
 3. Perform model training by running "MUSE_train.py".
+
 	(1)	Before running the program, please create a directory for checkpoint storage. Lots of space is needed to store the checkpoint in every epoch and the best model parameters for MaxSimC and AvgSimC.
 	
 	(2) Run "python MUSE_train.py -h" to see available parameter settings. Three parameters must be specified: --dataset_dir for the directory containing [train.sensplit.txt, test.sensplit.txt, wordID_MSSG_unigram_sensplit.txt], --save_dir for the directory for checkpoint storage, and --log_path for logging the model performance. The valid range of the parameters are listed as follows:
@@ -67,6 +71,7 @@ Note:
 	Some examples are also shown on the bottom of this page.
 
 4. Perform model testing by running "MUSE_test.py".
+
 	(1) Run "python MUSE_test.py -h" to see available parameter settings. Two parameters must be specified: --ckpt_path for the path of tested checkpoint file, and --dataset_dir for the directory containing [train.sensplit.txt, test.sensplit.txt, wordID_MSSG_unigram_sensplit.txt]. For the rest of parameters, please use default parameters if you didn't alter the parameters during training. Otherwise, you should adjust the parameters to its corresponding value during training. 
 	
 	(2) Perform model testing. For example, "python MUSE_test.py --context_window 5 --ckpt_path /tmp2/final_models/oneside_greedy/lr_0.025_window_5_batch_2048_sample_25_sense_3-bestMaxC-15000 --dataset_dir /home/homer/preprocessing/". Once the code is run, the MaxSimC and AvgSimC values will appear. Afterwards, there will be 5 testing options illustrated in the program and as below. Please note that all instructions are SEPARATED BY TAB.
