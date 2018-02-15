@@ -519,8 +519,8 @@ def evaluate(sess):
   indices1 = range(0,len(senseVec),2)
   indices2 = range(1,len(senseVec),2)
 
-  avgSimC = calAvgSimC(test_score, senseVec[indices1], senseScore[indices2], senseVec[indices2], senseScore[indices2])
-  maxSimC = calMaxSimC(test_score, senseVec[indices1], senseScore[indices2], senseVec[indices2], senseScore[indices2])
+  avgSimC = calAvgSimC(test_score, senseVec[indices1], senseScore[indices1], senseVec[indices2], senseScore[indices2])
+  maxSimC = calMaxSimC(test_score, senseVec[indices1], senseScore[indices1], senseVec[indices2], senseScore[indices2])
   
   scores = [maxSimC, avgSimC]
   score_name = ['MaxSimC', 'AvgSimC']
