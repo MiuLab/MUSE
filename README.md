@@ -33,7 +33,7 @@ Note:
 	
 	(2) Run "python parse.py" to get tokenized corpus "TokenizedCorpus.txt".
 	
-	(3) Run "python makeSenseN.py" to get word ID file "wordID_MSSG.txt".	(currently in Odin:prepare_data/release)
+	(3) Run "python makeSenseN.py" to get word ID file "wordID_MSSG.txt".
 	
 	(4) Run "python make_train_sensplit.py TokenizedCorpus.txt train.sensplit.txt" to get sentence tokenized corpus "train.sensplit.txt" as well as unigram word ID file "wordID_MSSG_unigram_sensplit.txt".
 	
